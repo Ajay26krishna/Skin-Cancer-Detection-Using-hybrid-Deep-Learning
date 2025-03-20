@@ -1,53 +1,42 @@
+# Skin Cancer Detection Using Hybrid Deep Learning
 
-Skin Cancer Detection Using Hybrid Deep Learning
+## **Overview**
+This project focuses on **skin cancer detection** using deep learning models. It utilizes **hybrid deep learning** by combining multiple neural networks (**VGG16, ResNet, and CapsNet**) to improve classification accuracy. 
 
-Overview
-This project focuses on skin cancer detection using deep learning models. It leverages hybrid deep learning by combining multiple neural networks (VGG16, ResNet, and CapsNet) to improve classification accuracy. The goal is to distinguish between benign and malignant skin lesions using an ensemble model with majority voting.
+The goal is to classify skin lesions as **benign** or **malignant** using **ensemble learning with majority voting**.
 
-The dataset used for training and evaluation consists of dermoscopic images of skin lesions, sourced from the International Skin Imaging Collaboration (ISIC) dataset.
+## **Project Structure**
+This repository contains the following Jupyter notebooks:
 
-Project Structure
-The repository consists of the following key Jupyter notebooks:
+- **`Capsnet.ipynb`** - Implements **Capsule Network (CapsNet)**, which helps retain spatial hierarchies in image classification.
+  
+- **`Custom input.ipynb`** - Allows users to **test custom images** for classification using the trained ensemble model.
 
-Capsnet.ipynb - Implements the Capsule Network (CapsNet) model for skin cancer detection. CapsNet is known for its ability to retain spatial hierarchies in image classification.
+- **`Majority voting.ipynb`** - Implements **ensemble learning**, combining predictions from multiple models (VGG16, ResNet, and CapsNet) using **majority voting**.
 
-Custom input.ipynb - Allows users to test custom images for classification using the trained ensemble model. Users can upload an image, preprocess it, and classify it as either benign or malignant.
+- **`Resnet.ipynb`** - Implements the **ResNet** model, known for solving the vanishing gradient problem in deep networks.
 
-Majority voting.ipynb - Implements ensemble learning by combining predictions from multiple models (VGG16, ResNet, and CapsNet) using a majority voting approach to improve classification performance.
+- **`vgg16.ipynb`** - Implements the **VGG16** model, a deep CNN architecture, to classify skin lesions.
 
-Resnet.ipynb - Implements the ResNet (Residual Network) model for skin cancer classification. ResNet is effective in deep learning tasks due to its residual connections, which help in avoiding the vanishing gradient problem.
+## **Methodology**
+1. **Preprocessing:** Images are resized, normalized, and augmented.
+2. **Model Training:** Three deep learning models (**VGG16, ResNet, and CapsNet**) are trained on the dataset.
+3. **Ensemble Learning:** Predictions from all three models are combined using **majority voting**.
+4. **Evaluation:** The model is evaluated using:
+   - **Accuracy**
+   - **Precision**
+   - **Recall**
+   - **F1-score**
+   - **Sensitivity**
+   - **Specificity**
+5. **Custom Testing:** Users can input their own images for classification.
 
-vgg16.ipynb - Implements VGG16, a well-known convolutional neural network (CNN) model, for classifying skin lesions into benign or malignant categories.
+## **Results**
+- **CapsNet achieved the highest accuracy (96.87%)**, followed by VGG16 (93.75%) and ResNet (87.25%).
+- The **ensemble model** using majority voting achieved an accuracy of **90.62%**, demonstrating improved robustness over individual models.
 
-Methodology
-Preprocessing: Images are resized, normalized, and augmented to improve generalization.
-Model Training: Three deep learning models (VGG16, ResNet, and CapsNet) are trained on the dataset.
-Ensemble Learning: The predictions of all three models are combined using a majority voting approach.
-Evaluation: The final model is evaluated using metrics such as accuracy, precision, recall, F1-score, sensitivity, and specificity.
-Custom Testing: Users can input their own skin lesion images for classification.
+## **Requirements**
+To run this project, install the following dependencies:
 
-Results
-The CapsNet model achieved the highest accuracy (96.87%), followed by VGG16 (93.75%) and ResNet (87.25%).
-The ensemble model using majority voting achieved an accuracy of 90.62%, demonstrating improved robustness over individual models.
-
-Requirements
-Python 3.x
-TensorFlow & Keras
-OpenCV
-NumPy
-Matplotlib
-Scikit-learn
-
-How to Use
-
-Clone the repository:
-git clone https://github.com/your-username/skin-cancer-detection.git
-cd skin-cancer-detection
-
-Install dependencies:
-pip install -r requirements.txt
-
-Run the notebooks in Jupyter or Google Colab.
-
-Acknowledgment
-This project was developed as part of an academic dissertation at CVR College of Engineering.
+```bash
+pip install tensorflow keras numpy opencv-python matplotlib scikit-learn
